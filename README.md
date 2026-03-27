@@ -21,7 +21,29 @@
 
 从 Releases 页面下载最新版 APK 安装包。
 
-### 方法二：自行构建
+### 方法二：本地构建 APK（无需 Expo 账号）
+
+**需要：** Android Studio + JDK 17
+
+```bash
+# 1. 克隆项目
+git clone https://github.com/你的用户名/runbeat.git
+cd runbeat
+
+# 2. 安装依赖
+npm install
+
+# 3. 生成 Android 项目
+npx expo prebuild -p android
+
+# 4. 用 Android Studio 打开 android 目录
+# 5. Build → Build Bundle(s) / APK(s) → Build APK(s)
+# 6. APK 位置: android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+详细步骤见 [LOCAL_BUILD.md](./LOCAL_BUILD.md)
+
+### 方法三：EAS 云端构建
 
 ```bash
 # 1. 安装依赖
@@ -31,7 +53,7 @@ npm install
 npx eas-cli login
 
 # 3. 构建 APK
-npm run build:android
+eas build -p android --profile preview
 ```
 
 ## 开发
@@ -72,6 +94,12 @@ src/
     MusicLibrary.ts     # 音乐库管理
     MusicPlayer.ts      # 音乐播放器
 ```
+
+## 文档
+
+- [BUILD.md](./BUILD.md) - 构建指南
+- [LOCAL_BUILD.md](./LOCAL_BUILD.md) - 本地构建详细步骤
+- [PROJECT.md](./PROJECT.md) - 项目完整文档
 
 ## License
 
