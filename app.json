@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "name": "RunBeat",
+    "slug": "runbeat",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#121212"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.runbeat.app",
+      "infoPlist": {
+        "NSMotionUsageDescription": "需要访问加速度传感器来检测您的跑步步频"
+      }
+    },
+    "android": {
+      "package": "com.runbeat.app",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.READ_MEDIA_AUDIO",
+        "android.permission.HIGH_SAMPLING_RATE_SENSORS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.WAKE_LOCK"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#121212"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "允许 RunBeat 访问您的音乐库",
+          "savePhotosPermission": "允许 RunBeat 保存音乐信息"
+        }
+      ],
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "允许 RunBeat 使用加速度传感器检测步频"
+        }
+      ]
+    ]
+  }
+}
